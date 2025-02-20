@@ -12,7 +12,7 @@ interface RestaurantPageProps {
 
 
 const RestaurantPage = async ({ params }: RestaurantPageProps) => {
-    const { slug } = await params
+    const { slug } = await params;
     const restaurant = await db.restaurant.findUnique({ where: { slug } });
 
     if (!restaurant) {
