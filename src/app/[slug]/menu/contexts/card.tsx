@@ -2,15 +2,15 @@
 import { Product } from "@prisma/client";
 import { createContext, ReactNode, useState } from "react";
 
-interface CartProducts extends Pick<Product, "id" | "name" | "price" | "imageUrl"> {
+interface CartProduct extends Pick<Product, "id" | "name" | "price" | "imageUrl"> {
     quantity: number;
 }
 
 export interface ICartContext {
     isOpen: boolean;
-    products: CartProducts[];
+    products: CartProduct[];
     toggleCart: () => void;
-    addProduct: (product: CartProducts) => void;
+    addProduct: (product: CartProduct) => void;
 }
 
 export const CartContext = createContext<ICartContext>({
@@ -21,12 +21,27 @@ export const CartContext = createContext<ICartContext>({
 })
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-    const [products, setProducts] = useState<CartProducts[]>([]);
+    const [products, setProducts] = useState<CartProduct[]>([]);
     const [isOpen, setIsOpen] = useState<boolean>(false);
-
-    const addProduct = (product: CartProducts) => {
-        setProducts(prev => ([...prev, product]));
-    }
+    const addProduct = (product: CartProduct) => {
+        const productIsAlreadyOnTheCart = products.some(
+            (prevProduct) => prevProduct.id === product.id,
+        );
+        if (!productIsAlreadyOnTheCart) {
+            return setProducts((prev) => [...prev, product]);
+        }
+        setProducts((prevProducts) => {
+            return prevProducts.map((prevProduct) => {
+                if (prevProduct.id === product.id) {
+                    return {
+                        ...prevProduct,
+                        quantity: prevProduct.quantity + product.quantity,
+                    };
+                }
+                return prevProduct;
+            });
+        });
+    };
 
     const toggleCart = () => {
         setIsOpen((prev) => !prev);
