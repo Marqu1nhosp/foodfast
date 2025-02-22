@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
-import { CartContext } from "../contexts/card";
+import { CartContext } from "../contexts/cart";
 import CartProductItem from "./cart-product-item";
 import FinishOrderDialog from "./finish-order-dialog";
 

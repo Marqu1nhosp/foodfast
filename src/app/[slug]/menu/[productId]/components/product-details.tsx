@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 import CartSheet from "../../components/carts-sheet";
-import { CartContext } from "../../contexts/card";
+import { CartContext } from "../../contexts/cart";
 
 interface ProductDetailsProps {
     product: Prisma.ProductGetPayload<{

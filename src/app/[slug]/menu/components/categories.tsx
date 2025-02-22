@@ -32,7 +32,7 @@ const RestaurantCategories = ({ restaurant }: RestaurantCategoriesProps) => {
     }
 
     const getCategoryButtonVariant = (category: MenuCategory) => {
-        return selectedCategory.id == category.id ? "default" : "secondary";
+        return selectedCategory.id == category.id ? "secondary" : "outline";
     }
     return (
         <div className="relative z-50 mt[-1.5rem] rounded-t-3xl bg-white">
