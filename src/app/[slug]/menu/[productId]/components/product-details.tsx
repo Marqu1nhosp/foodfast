@@ -99,7 +99,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
                         </div>
                     </ScrollArea>
                 </div>
-                <Button onClick={handleAddToCart} className="rouded-full w-full">
+                <Button onClick={handleAddToCart} variant="secondary" className="rouded-full w-full">
                     Adicionar à sacola
                 </Button>
                 <CartSheet />
