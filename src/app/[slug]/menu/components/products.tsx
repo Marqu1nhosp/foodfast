@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams, useSearchParams } from "next/navigation";
 
-import { FormatCurrency } from "@/app/utils/format-currency";
+import { formatCurrency } from "@/app/utils/format-currency";
 
 
 interface ProductsProps {
@@ -29,7 +29,7 @@ const Products = ({ products }: ProductsProps) => {
                             {product.description}
                         </p>
                         <p className="pt-3 text-sm font-semibold">
-                            {FormatCurrency(product.price)}
+                            {formatCurrency(product.price)}
                         </p>
                     </div>
 

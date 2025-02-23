@@ -2,7 +2,7 @@ import { ChevronLeftIcon, ChevronRightIcon, TrashIcon } from "lucide-react";
 import Image from "next/image";
 import { useContext } from "react";
 
-import { FormatCurrency } from "@/app/utils/format-currency";
+import { formatCurrency } from "@/app/utils/format-currency";
 import { Button } from "@/components/ui/button";
 
 import { CartContext, CartProduct } from "../contexts/cart";
@@ -22,7 +22,7 @@ const CartProductItem = ({ product }: CartItemProps) => {
                 </div>
                 <div className="space-y-1">
                     <p className="text-xs max-w-[90%] truncate text-ellipsis">{product.name}</p>
-                    <p className="text-sm font-semibold text-left">{FormatCurrency(product.price)}</p>
+                    <p className="text-sm font-semibold text-left">{formatCurrency(product.price)}</p>
                     <div className="flex items-center gap-1 text-center">
                         <Button onClick={() => decreaseProductQuantity(product.id)} className="w-7 h-7 rounded-lg" variant="outline">
                             <ChevronLeftIcon />

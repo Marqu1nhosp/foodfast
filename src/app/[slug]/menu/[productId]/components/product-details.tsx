@@ -4,7 +4,7 @@ import { ChefHatIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
 import { useContext, useState } from "react";
 
-import { FormatCurrency } from "@/app/utils/format-currency";
+import { formatCurrency } from "@/app/utils/format-currency";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
@@ -68,7 +68,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
 
                     <div className="flex items-center justify-between mt-3">
-                        <h3 className="text-xl font-semibold"> {FormatCurrency(product.price)} </h3>
+                        <h3 className="text-xl font-semibold"> {formatCurrency(product.price)} </h3>
                         <div className="flex items-center gap-3 text-center">
                             <Button onClick={handleDecreaseQuantity} variant="outline" className="h-8 w-8 rounded-xl">
                                 <ChevronLeftIcon />

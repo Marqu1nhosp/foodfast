@@ -1,7 +1,7 @@
 
 import { useContext, useState } from "react";
 
-import { FormatCurrency } from "@/app/utils/format-currency";
+import { formatCurrency } from "@/app/utils/format-currency";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
@@ -31,7 +31,7 @@ const CartSheet = () => {
                         <CardContent className="p-5">
                             <div className="flex justify-between">
                                 <p className="text-sm text-muted-foreground">Total</p>
-                                <p className="font-semibold text-sm">{FormatCurrency(total)}</p>
+                                <p className="font-semibold text-sm">{formatCurrency(total)}</p>
                             </div>
                         </CardContent>
                     </Card>
