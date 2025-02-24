@@ -5,7 +5,7 @@ import { ChevronLeftIcon, ScrollTextIcon } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-import { FormatCurrency } from "@/app/utils/format-currency";
+import { formatCurrency } from "@/app/utils/format-currency";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -86,7 +86,7 @@ const OrderList = ({ orders }: OrderListProps) => {
               ))}
             </div>
             <Separator />
-            <p className="text-sm font-medium">{FormatCurrency(order.total)}</p>
+            <p className="text-sm font-medium">{formatCurrency(order.total)}</p>
           </CardContent>
         </Card>
       ))}
